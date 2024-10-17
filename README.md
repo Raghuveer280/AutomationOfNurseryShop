@@ -1,2 +1,3 @@
 # NursheryShop
-These is my SpringBoot Project.
+This is my SpringBoot Project.
+Technologies used- HTML, CSS, JavaScript,SpringBoot(Backend),MySQL(database)
