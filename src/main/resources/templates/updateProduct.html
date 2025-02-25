@@ -1,0 +1,120 @@
+<html xlmns="https://www.thymeleaf.org">
+<head>
+	<style>
+		body{
+			text-align: center;
+			background: linear-gradient(black,grey,darkgrey);
+			justify-content: center;
+		}
+		
+		h1{
+			color:white;
+
+		}
+		.container{
+			justify-content: center;
+			text-align: center;
+			height: 550px;
+			width:550px;
+			border-style:solid;
+			background-color: papayawhip;
+			margin-top:40px;
+			margin-left:450px;				
+		}
+		table td{
+					text-align: center;
+				}
+		
+		.btn{
+			text-align: center;
+			width:40%;
+			height:40px;
+			border-radius: 40px;
+			margin-left: 60px;
+			background: linear-gradient(salmon,darksalmon,lightsalmon);
+			cursor: pointer;
+			font-family: comic sans ms;
+			font-size: 20px;
+		}
+		
+		.btn:hover{
+			color:red;
+		}
+		.container input{
+			width:80%;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border-radius: 20px;
+			margin:27px 20px;
+			border-color: rgba(0,0, 0, 0.3);
+			height: 40px;
+			font-family: comic sans ms;
+			font-size: 25px;
+		}
+		
+	</style>
+</head>	
+<body>
+		<h1>Update Record Window</h1>
+		<hr/>
+		<form method="post" action="/uploadres" enctype="multipart/form-data">
+			<div class="container">
+				
+			<table align="center" width="500px" heigth="700px" >
+			<tr>
+				<td>
+					Name
+					</td>
+					<td>
+						<input type="text" name="name" th:value="${name}">
+				</td>
+			</tr>		
+			
+			<tr>
+				<td>
+					Price
+				</td>
+				<td>	
+					<input type="text" name="price" th:value="${price}">
+				</td>
+		</tr>
+			<tr>
+				<td>
+					Quantity
+				</td>
+					<td><input type="text" name="quantity" th:value="${quantity}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Category
+				</td>
+				<td>
+					<input type="text" name="category" th:value="${category}" readonly>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					Picture
+				</td>
+			<td>
+				<input type="file" name="file" value="choose file">						
+			</td>
+		</tr>
+			
+			<tr>
+				<td colspan="2">
+					<button type="submit" value="Upload" class="btn">Upload</button>
+			</td>
+		</tr>
+			
+			</table>
+			
+			</div>
+			
+		</form>
+</body>
+
+</html>

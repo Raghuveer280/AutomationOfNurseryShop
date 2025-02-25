@@ -1,0 +1,162 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Payment Details</title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0%;
+				scroll-behavior: smooth;
+				transition: ease-in;
+			}
+			
+			body{
+				font-family: Arial, Helvetica, sans-serif;
+				padding: 0%;
+				margin: 0;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			.dashboard
+			{
+				background-color: #151B54;
+				color: white;
+				height: 100%;
+				text-align: center;
+				font-size: 30px;
+				width: 35%;
+				border: 2px solid white;
+				overflow: hidden;
+			}
+						
+			.dashboard h3{
+				color: #151B54;
+				font-size: 50px;
+				background-color: cyan;
+				border-bottom-style:solid ;
+				padding: 20px;
+				border-bottom-color: white ;
+				}
+						
+			.dashboard a{
+				display: block;
+				text-align: center;
+				text-decoration: none;
+				color: white;
+				padding-top: 10px;
+				border:2px;
+				border-bottom-style: solid;
+				border-color: white;
+				padding-bottom: 20px;
+			}
+						
+			.dashboard a:hover{
+				background-color: white;
+				color: darkblue;
+			}
+				
+			.section{
+				display: block;
+				text-align: center;
+				width:65%;
+				background-color: bisque;
+				float: right;
+				height: 100%;
+				margin-top: -49%;
+				padding: 5px;
+				overflow-y: scroll;
+			}		
+			
+			.box{
+				background-color: white;
+				color: black;
+				width: 80%;
+				box-shadow: rgba(255,255,255,0.5);
+				border-radius: 40px;
+				padding: 10px 10px;
+				margin-top:30px;
+				display: block;
+				float: left;
+				opacity: 0.8;
+				margin-left: 50px;
+				padding-left: 40px;
+				min-height: 150px;			
+				}
+				
+				.box .msgbox{
+					display: block;
+				}
+					
+				.box .msgbox a{
+					float: right;
+				}
+							
+				.box .msgbox p{
+					text-align: left;
+					padding: 10px;
+				}
+
+				span
+				{
+					margin-left:10px;
+				}
+
+				.msgbox a{
+					background-color: crimson;
+					color: rgba(255,255,255,1);
+					display: block;
+					border-radius: 30px;
+					margin-right: 10px;
+					margin-top: 5px;
+					text-decoration: none;
+					font-size: 15px;
+					font-weight: bold;
+					font-family: comic sans ms;
+					padding: 10px;
+					opacity: 1;
+				}
+
+				.msgbox a:hover{
+					background-color: orangered;
+				}				
+		</style>
+	</head>
+<body>
+	
+	
+		<div class="dashboard">
+		
+		<h3 >DashBoard</h3>
+		
+	    <a href="showVeg">Show Vegetables</a>
+		<a href="showGrains" >Show Grains</a>
+		<a href="showPlants">Show Plants </a>
+		<a href="showFlowers">Show Flowers</a>
+		<a href="showOrganic">Show Organic</a>
+		<a href="showMimosa">Show Mimosa</a>
+		<a th:href="@{/showdelete}">Delete Items</a>
+		<a th:href="@{/index}">Insertion Form</a>
+		<a th:href="@{/clearAllPayments}">Clear All Payments</a>
+		</div>
+		
+	<div class="section">
+		<h3 style="color: rebeccapurple; font-size: 40px;">All Payment List</h3>
+	<div class="box" th:each="c:${record}">
+		<div class="msgbox">
+			<a th:href="@{/deletePayment/{oid}(oid=${c.Orderid})}">Delete</a>
+			<p class="container">
+				<u>Order Id:</u><span th:text="${c.Orderid}"></span><br><br>
+			<u>Name:</u><span th:text="${c.Fname}"></span><br><br>
+			<u>E-mail:</u><span th:text="${c.email}"></span><br><br>
+			<u>Amount:</u><span th:text="'₹'+${c.amt}"></span><br><br>
+			<u>Mode of Payment:</u><span th:text="${c.modeofpayment}"></span><br><br>
+			<u>Address:</u><span th:text="${c.address}+','+${c.city}"></span><br><br>
+			<u>State:</u><span th:text="${c.state}+'-'+${c.pincode}"></span><br><br>
+			</p>
+	</div>
+</div>
+
+</div>
+</div>
+</body>
+</html>

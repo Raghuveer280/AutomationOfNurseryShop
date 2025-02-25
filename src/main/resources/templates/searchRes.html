@@ -1,8 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css}" />
-		<link rel="icon" th:href="@{images/home-icon.png}" type="image/x-icon" />
-
 		<style>
 			*{
 				font-family:comic sans ms;
@@ -43,7 +41,7 @@
 				border-bottom: 1rem solid rgba(255,255,255,.2);
 				
 			}
-			
+
 			.header-3{
 				background:#fff;
 				box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
@@ -112,50 +110,14 @@
 				color:chartreuse;
 			}
 
-			
 			.header-3 .navbar a{
 				color: #666;
 				font-size: 2rem;
-				margin-right:4rem;
+				margin-right:2rem;
 			}
-			
-			ul{
-				list-style: none;
-			}
-			
-			ul li{
-				display: inline-block;
-				position: relative;
-			}
-			
-			ul li ul.dropdown li{
-				display:block;
-			}
-			
-			ul li ul.dropdown{
-				width: 100%;
-				position: absolute;
-				display: none;
-				
-			}
-			
-			ul.dropdown li a{
-				background-color: white;
-				display: block;
-				width: 200px;
-				text-align: center;
-				padding: 10px 15px;
-				transform: translate(-55px,0px);
-			}
-			
-			ul li a:hover{
-				background: white;
-			}
-			ul li:hover ul.dropdown{
-				display: block;
-			}
-			
+
 			.header-3 .icons a{
+				
 				color: #666;
 				font-size: 2.5rem;
 				margin-left:2rem;
@@ -254,7 +216,41 @@
 				text-align: center;
 				margin-bottom: 0px;
 			}
-
+			ul{
+							list-style: none;
+						}
+						
+						ul li{
+							display: inline-block;
+							position: relative;
+						}
+						
+						ul li ul.dropdown li{
+							display:block;
+						}
+						
+						ul li ul.dropdown{
+							width: 100%;
+							position: absolute;
+							display: none;
+							
+						}
+						
+						ul.dropdown li a{
+							background-color: white;
+							display: block;
+							width: 200px;
+							text-align: center;
+							padding: 10px 15px;
+							transform: translate(-55px,0px);
+						}
+						
+						ul li a:hover{
+							background: white;
+						}
+						ul li:hover ul.dropdown{
+							display: block;
+						}
 			#btn:hover{
 				background-color: chartreuse;
 			}
@@ -312,11 +308,11 @@
 					width:70px;
 				}
 				.name{
-						font-size: 2.5rem;
-						font-weight:bold ;
-						width: 100%;
-						text-align: center;
-					}
+								font-size: 2.5rem;
+								font-weight:bold ;
+								width: 100%;
+								text-align: center;
+							}
 		</style>
 	</head>
 
@@ -341,55 +337,55 @@
 					<a href="#" class="logo"><i class="fas fa-seedling"></i>Nursery Shop</a>
 					
 					<form action="/search" method="get"  class="search-bar-container">
-							<input type="search" name="name" id="search-bar" placeholder="search here...">
-							<button style="background:rgba(255,255,255,.2);height: 20px;" type="submit">
-								<label for="search-bar" class="fas fa-search"></label></button>
-					</form>
+										<input type="search" name="name" id="search-bar" placeholder="search here...">
+										<!--<label for="search-bar" class="fas fa-search"></label>-->
+										<button style="background:rgba(255,255,255,.2);height: 20px;" type="submit"><label for="search-bar" class="fas fa-search"></label></button>
+									</form>
 				</div>
 				
 				<div class="header-3">
 					
 					<nav class="navbar">
-						<ul>
-						<li><a th:href="@{/home}">Home</a></li>
-						<li>
-							<a href="#" class="menubar">Category </a>
-						 <ul class="dropdown">
-						     <li><a th:href="@{/showVeg}">Vegetables</a></li>
-						     <li><a th:href="@{/showGrains}">Grains</a></li>
-						     <li><a th:href="@{/showPlants}">Plants</a></li>
-						     <li><a th:href="@{/showFlowers}">Flowers</a></li>
-						     <li><a th:href="@{/showOrganic}">Organic Seeds</a></li>
-						     <li><a th:href="@{/showMimosa}">Mimosa Seeds</a></li>
-						  </ul>
-						</li>	
-						<li><a href="#product">Product</a></li>
-						<li><a href="/aboutUs">About Us</a></li>
-						<li><a href="/contactUs">Contact Us</a></li>
-					</ul>		
-					</nav>
+											<ul>
+											<li><a th:href="@{/home}">Home</a></li>
+											<li>
+												<a href="#" class="menubar">Category </a>
+											 <ul class="dropdown">
+											     <li><a th:href="@{/showVeg}">Vegetables</a></li>
+											     <li><a th:href="@{/showGrains}">Grains</a></li>
+											     <li><a th:href="@{/showPlants}">Plants</a></li>
+											     <li><a th:href="@{/showFlowers}">Flowers</a></li>
+											     <li><a th:href="@{/showOrganic}">Organic Seeds</a></li>
+											     <li><a th:href="@{/showMimosa}">Mimosa Seeds</a></li>
+											  </ul>
+											</li>	
+											<li><a href="#product">Product</a></li>
+											<li><a href="/aboutUs">About Us</a></li>
+											<li><a href="/contactUs">Contact Us</a></li>
+										</ul>		
+										</nav>
 					
 					<div class="icons">
 						<a href="/showcart" class="fas fa-shopping-cart" style="position: relative;"></a>
 						<span th:text="${count}" id="count"></span>
 						<a href="#" class="fas fa-heart"></a>
-						<a href="/" class="fa-solid fa-right-from-bracket"></a>
+						<a href="#" class="fas fa-user-circle"></a>
 					</div>
 				</div>
 			</header>
 			
 			<div class="heading" style="text-align: center;">
-				<span>Category:Vegetables</span>
+				<span>Search Result</span>
 			</div>
 			
 			
 			
 	<section class="product">
-			
+		
 		<div class="box-container">
-			<div class="box" th:each="s,c:${records}">
+			<div class="box" th:each="s,c:${results}">
 				<form method="post" action="/add">
-					<input type="text" value="vegetables" name="category" hidden>
+					<input type="text" th:value="${category}" name="category" hidden>
 						<img th:src="@{/uploads/{pic}(pic=${s.picurl})}">
 						<input type="text" th:value="${s.name}" name="name" class="name" readonly>
 					<div class="stars">
@@ -402,10 +398,10 @@
 					
 						<div class="quantity">
 								<span> Quantity: </span>
-								<input type="number" min="1" max="100" value="1" name="qty" ><br>
+								<input type="number" min="1" max="100" value="1" name="qty" class="demanded"><br>
 									
 								<span>Available Quantity: </span>
-								<input type="text" th:value="${s.quantity}" class="available" readonly>
+								<input type="text"th:value="${s.quantity}" class="available" readonly>
 						</div>
 						
 <div style="text-align: center; justify-content: center; background-color: chartreuse; width: 50%; margin-left:25% ;">
@@ -418,8 +414,8 @@
 							</button>
 						</center>
 				</form>
-					
 			</div>
+			<span style="font-size:30px;color:red;padding-left: 40%;" th:text="${NotFound}"></span>
 		</div>	
 	</section>
 				
@@ -448,8 +444,7 @@
 					<a href="/contactUs">Contact Us</a><br>&nbsp<br>
 				  </div>
 				  </div>
-			  		
+				  		
 			</footer>
-
 	</body>
 </html>

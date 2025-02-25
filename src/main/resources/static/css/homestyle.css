@@ -115,7 +115,7 @@ html{
 	
 	color: #666;
 	font-size: 2.5rem;
-	margin-left:2rem;
+	margin-left:3rem;
 }
 
 .header-3 a:hover{
@@ -138,7 +138,7 @@ html{
 	color: #fff;
 	border-radius: 50%;
 	top: 50%;
-	transform: translate(40px, 0px);
+	transform: translate(50px, 0px);
 }
 .btn{
 	background-color: darkgreen;
@@ -167,7 +167,7 @@ html{
 			box-shadow: 0 0 8px 2px rgba(0,0,0,0.2);
 			margin-top: 30px;
 			margin-bottom: 20px;
-			margin-left: 60px;
+			margin-left: 75px;
 			box-shadow: rgba(0,255,0,1.0);
 		}
 		.slide-container .slides{
@@ -180,7 +180,8 @@ html{
 			width: 100%;
 			height: 100%;
 			position: absolute;
-			object-fit: cover; 
+			object-position: center;
+			object-fit: cover;
 		}
 		.slide-container .slides img:not(.active){
 			top: 0;
@@ -327,10 +328,12 @@ html{
 	position: absolute;
 	top: 1rem;
 	left: 1rem;
-	background: rgb(80, 238, 62);
+	background: rgba(80, 238, 62,0.2);
 	color: rgb(0, 128, 0);
 	font-size: 2rem;
 	padding: 2rem 1rem;
+	font-weight: 400;
+	backdrop-filter: blur;
 }
 
 .product .box-container .box .icons{
@@ -368,7 +371,7 @@ html{
 	font-size: 2.5rem;
 	padding: 1rem 0;
 }
-
+	
 .product .box-container .box .stars i{
 	color: gold;
 	font-size: 2rem;
@@ -403,7 +406,7 @@ html{
 
 .product .box-container .box .btn{
 	display: block;
-	margin-left:110px;
+	margin-left:160px;
 	margin-bottom: 0px;
 	}
 	
@@ -490,3 +493,4 @@ html{
 	color:white;
 	padding: 20px;
 }
+

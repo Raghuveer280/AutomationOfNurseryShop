@@ -1,7 +1,6 @@
 package com.example.demo.Entity;
 
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,12 +10,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class cart {
+public class payment {
 	@Id
-	String name;
-	int price;
-	int quantity;
-	String picurl;
-	public cart() {}
-	
+	int Orderid;
+	String Fname;
+	String email;
+	int amt;
+	String modeofpayment;
+	String address;
+	String city;
+	String state;
+	int pincode;
+	public payment(){}
 }

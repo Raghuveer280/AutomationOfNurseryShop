@@ -2,7 +2,7 @@
 	<head>
 		<title>Home</title>
 		<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css}" />
-
+		<link rel="icon" th:href="@{images/home-icon.png}" type="image/x-icon" />
 		<link rel="stylesheet" th:href="@{css/homestyle.css}" type="text/css" />
 		
 		</head>
@@ -40,9 +40,10 @@
 				
 				<a href="#" class="logo"><i class="fas fa-seedling"></i>NURSERY STORE</a>
 				
-				<form action="" class="search-bar-container">
-					<input type="search" id="search-bar" placeholder="search here...">
-					<label for="search-bar" class="fas fa-search"></label>
+				<form action="/search" method="get"  class="search-bar-container">
+				    <input type="search" name="name" id="search-bar" placeholder="search here...">
+					<button style="background:rgba(255,255,255,.2);height: 20px;" type="submit">
+					<label for="search-bar" class="fas fa-search"></label></button>					
 				</form>
 			</div>
 			
@@ -244,10 +245,12 @@
 					</div>
 						
 					<img th:src="@{images/money-plant.webp}" >
-					<h3>Money Plant Mason Jar Terrarium</h3>
+					
 					
 					<form method="post" action="/add">
-						
+						<input type="text" value="Money Plant Mason Jar Terrarium" name="name" class="proName" hidden>
+						<input type="text" name="category" value="product" hidden>
+						<h3>Money Plant Mason Jar Terrarium</h3>
 					<div class="stars">
 						<i class="fas fa-star"></i>
 						<i class="fas fa-star"></i>
@@ -258,9 +261,10 @@
 					<div class="quantity" >
 						<span> Quantity: </span>
 						<input type="number" min="1" max="100" value="1" name="qty">
-						<input type="text" name="id" value=1 hidden>
+						
 					</div>
-					<div class="price">₹496 <span> ₹518</span></div>
+					<div class="price">
+						<input type="text" value="496" name="price" style="width: 0px;" hidden>₹496<span> ₹518</span></div>
 					<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
 					
 				</div>
@@ -275,8 +279,11 @@
 									</div>
 										
 									<img th:src="@{images/green-aglaonema.webp}" >
-									<h3>Green Aglaonema in Hexagon Pot</h3>
+									
 									<form method="post" action="/add">
+										<input type="text" name="category" value="product" hidden>
+										<input type="text" value="Green Aglaonema in Hexagon Pot" name="name" class="proName" hidden>
+										<h3>Green Aglaonema in Hexagon Pot</h3>
 									<div class="stars">
 										<i class="fas fa-star"></i>
 										<i class="fas fa-star"></i>
@@ -287,9 +294,9 @@
 									<div class="quantity">
 										<span> Quantity: </span>
 										<input type="number" min="1" max="100" value="1" name="qty">
-										<input type="text" name="id" value=2 hidden>
 									</div>
-									<div class="price">₹1710 <span> ₹1800</span></div>
+									<div class="price">
+										<input type="text" value="1710" name="price" style="width: 0px;" hidden>₹1710 <span> ₹1800</span></div>
 									<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
 								</div>
 								</form>
@@ -303,8 +310,11 @@
 													</div>
 														
 													<img th:src="@{images/three-layer-bamboo.webp}" >
-													<h3>Three Layer Bamboo Terrarium</h3>
+													
 													<form method="post" action="/add">
+														<input type="text" name="category" value="product" hidden>
+														<input type="text" value="Three Layer Bamboo Terrarium" name="name" class="proName" hidden>
+														<h3>Three Layer Bamboo Terrarium</h3>
 													<div class="stars">
 														<i class="fas fa-star"></i>
 														<i class="fas fa-star"></i>
@@ -317,7 +327,9 @@
 														<input type="number" min="1" max="100" value="1" name="qty">
 														<input type="text" name="id" value=3 hidden>
 													</div>
-													<div class="price">₹791 <span> ₹899</span></div>
+													<div class="price">
+														<input type="text" value="791" name="price" style="width: 0px;" hidden>
+														₹791 <span> ₹899</span></div>
 													<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
 												</div>
 												</form>
@@ -333,8 +345,11 @@
 												<a href="#" class="fas fa-eye"></a>
 												</div>
 												<img th:src="@{images/jade-plant.webp}" >
-												<h3>Jade Plant 4" Glass Terrarium</h3>
+												
 												<form method="post" action="/add">
+													<input type="text" name="category" value="product" hidden>
+													<input type="text" value="Jade Plant 4 Glass Terrarium" name="name" class="proName" hidden>
+													<h3>Jade Plant 4" Glass Terrarium</h3>
 												<div class="stars">
 												<i class="fas fa-star"></i>
 												<i class="fas fa-star"></i>
@@ -347,7 +362,9 @@
 												<input type="number" min="1" max="100" value="1" name="qty">
 												<input type="text" name="id" value=4 hidden>
 												</div>
-												<div class="price">₹355 <span> ₹399</span></div>
+												<div class="price">
+													<input type="text" value="355" name="price" style="width: 0px;" hidden>
+													₹355 <span> ₹399</span></div>
 												<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
 												</div>	
 												</form>
@@ -361,8 +378,11 @@
 												<a href="#" class="fas fa-eye"></a>
 												</div>
 												<img th:src="@{images/grand-5-green.webp}" >
-												<h3>Grand 5 Green House Plant Set</h3>
+												
 												<form method="post" action="/add">
+													<input type="text" name="category" value="product" hidden>
+													<input type="text" value="Grand 5 Green House Plant Set" name="name" class="proName" hidden>
+													<h3>Grand 5 Green House Plant Set</h3>
 												<div class="stars">
 												<i class="fas fa-star"></i>
 												<i class="fas fa-star"></i>
@@ -375,7 +395,9 @@
 											<input type="number" min="1" max="100" value="1" name="qty">
 											<input type="text" name="id" value=5 hidden>
 											</div>
-											<div class="price">₹1195 <span> ₹1299</span></div>
+											<div class="price">
+												<input type="text" value="1195" name="price" style="width: 0px;" hidden>
+												₹1195 <span> ₹1299</span></div>
 											<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
 											</div>
 											</form>
@@ -389,8 +411,11 @@
 			<a href="#" class="fas fa-eye"></a>
 			</div>
 		<img th:src="@{images/air-purifying-syngonium.webp}" >
-		<h3>Air Purifying Syngonium with Pot</h3>
+		
 		<form method="post" action="/add">
+			<input type="text" name="category" value="product" hidden>
+			<input type="text" value="Air Purifying Syngonium with Pot" name="name" class="proName" hidden>
+			<h3>Air Purifying Syngonium with Pot</h3>
 		<div class="stars">
 		<i class="fas fa-star"></i>
 		<i class="fas fa-star"></i>
@@ -403,7 +428,9 @@
 		<input type="number" min="1" max="100" value="1" name="qty">
 		<input type="text" name="id" value=6 hidden>
 		</div>
-		<div class="price">₹515 <span> ₹599</span></div>
+		<div class="price">
+			<input type="text" value="515" name="price" style="width: 0px;" hidden>
+			₹515 <span> ₹599</span></div>
 		<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
 				</div>	
 				</form>											

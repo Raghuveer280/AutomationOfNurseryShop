@@ -5,7 +5,7 @@
 header{
 	width: 100vw;
 	min-height: 100vh;
-	background: #34495e;
+	background: #4CAF50;
 	font-size: 1.2rem;
 	display: flex;
 	justify-content: center;
@@ -22,8 +22,10 @@ header{
 }
 .left{
 	flex-basis: 50%;
+	border-right: solid green;
 }
 .right{
+	margin-left: 20px;
 	flex-basis: 50%;
 }
 form{
@@ -32,40 +34,57 @@ form{
 
 h3{
 	margin-top: 1rem;
-	color:#2c3e50;
+	color:rgb(0, 128, 64);
 	}
 
-form input[type="text"]{
+ input[type="text"],input[type="number"]{
 	width: 100%;
 	padding: 0.5rem 0.7rem;
 	margin: 0.5rem 0;
 	outline: none;
 }
+input[type="radio"]{
+	padding-top:25px;
+	margin: 0.5rem 0;
+	outline: none;
+}
 
-#zip{
+#pin{
 	display: flex;
 	margin-top: 0.5rem;
 }
-#zip select{
+#pin input{
 	padding: 0.5rem 0.7rem;
 }
-#zip input[type="number"]{
+#pin select{
+	width: 100%;
+		padding: 0.5rem 0.7rem;
+		margin: 0.5rem 0;
+		outline: none;
+}
+#pin input[type="number"]{
+	padding: 0.5rem 0.7rem;
+	margin-left: 5px;	
+}
+#pin input[type="password"]{
 	padding: 0.5rem 0.7rem;
 	margin-left: 5px;	
 }
 input[type="submit"]{
 	width: 100%;
 	padding: 0.7rem 1.5rem;
-	background: #34495e;
-	color: white;
+	background: rgb(128, 128, 64);
+	color:black;
 	border: none;
 	outline: none;
 	margin-top: 1rem;
 	cursor: pointer;
+	font-size: 22px;
 }
 
 input[type="submit"]:hover{
-	background: #2c3e50;
+	background: rgb(0, 128, 0);
+	color:rgb(255, 255, 255);
 }
 
 
@@ -86,83 +105,58 @@ input[type="submit"]:hover{
 	<div class="container">
 		<div class="left">
 			<h3>BILLING ADDRESS</h3>
-			<form>
+			<form method="post" action="/paymentRes">
 				Full name
-				<input type="text" name="" placeholder="Enter name" required>
+				<input type="text" name="Fname" placeholder="Enter name" required>
 				Email
-				<input type="text" name="" placeholder="Enter email" required>
+				<input type="text" name="email" placeholder="Enter email" required>
 
 				Address
-				<input type="text" name="" placeholder="Enter address" required>
+				<input type="text" name="address" placeholder="Enter address" required>
 				
 				City
-				<input type="text" name="" placeholder="Enter City" required>
-				<div id="zip">
+				<input type="text" name="city" placeholder="Enter City" required>
+				<div id="pin">
 					<label>
 						State
-						<select>
-							<option>Choose State..</option>
-							<option>Delhi</option>
-							<option>Mumbai</option>
-							<option>Uttar Pradesh</option>
-							<option>Madhya Pradesh</option>
-							<option>Karnataka</option>
-							<option>Tamil-nadu</option>
-							<option>Gujrat</option>
-							<option>Rajasthan</option>
-							<option>Bihar</option>
-							<option>Goa</option>
+						<select name="state">
+							<option value="null">Choose State..</option>
+							<option value="Assam">Assam</option>
+							<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+							<option value="Uttar Pradesh">Uttar Pradesh</option>
+							<option value="Madhya Pradesh">Madhya Pradesh</option>
+							<option value="Karnataka">Karnataka</option>
+							<option value="Tamil-nadu">Tamil-nadu</option>
+							<option value="Gujrat">Gujrat</option>
+							<option value="Rajasthan">Rajasthan</option>
+							<option value="Bihar">Bihar</option>
+							<option value="Goa">Goa</option>
 						</select>
 					</label>
 						<label>
-						Zip code
-						<input type="number" name="" placeholder="Zip code">
+						Pin code
+						<input type="number" name="pincode" placeholder="Pin code" inputmode="numeric">
 					</label>
 				</div>
-			</form>
 		</div>
 		<div class="right">
-			<h3>PAYMENT</h3>
-			<form>
-				Accepted Card <br>
-				<img th:src="@{images/card1.jpg}" width="100">
-				<img th:src="@{images/card2.jpg}" width="50">
-				<br><br>
-
-				Credit card number
-			<input type="text" name="" placeholder="Enter card number" required>
+			<h3>SELECT MODE OF PAYMENT</h3>
+			<br><input type="radio" name="modeofpayment" value="UPI" id="opt1"><label for="opt1">UPI   <img th:src="@{images/upi.jpg}" height="40"></label><br>
+			<input type="radio" name="modeofpayment" value="Credit/Debit Card" id="opt2"><label for="opt2">Credit/Debit Card   <img th:src="@{images/card2.jpg}" height="40"></label><br>
+			<input type="radio" name="modeofpayment" value="Cash on Delivery" id="opt3"><label for="opt3">Cash on Delivery   <img th:src="@{images/cod.png}" height="40"></label><br>
+			<input type="radio" name="modeofpayment" value="Net Banking" id="opt4"><label for="opt4"> Net-Banking   <img th:src="@{images/netbank.jpg}" height="40"></label><br>		
 				
-				Exp month
-				<input type="text" name="" placeholder="Enter Month" required>
-				<div id="zip">
-					<label>
-						Exp year
-						<select>
-							<option>Choose Year..</option>
-							<option>2022</option>
-							<option>2023</option>
-							<option>2024</option>
-							<option>2025</option>
-						</select>
-					</label>
-						<label>
-						CVV
-						<input type="number" name="" placeholder="CVV" required>
-					</label>
+			
+			<div style="padding-top: 110px;">
+					<h3 style="display: inline;">Amount to pay:₹</h3>
+						<input style="border: none;color:rgb(0, 128, 0);font-size: 20px;width:55px;font-weight: bold;" name="amt" th:value="${amt}"readonly>
 				</div>
-			</form>
-			<input type="submit" name="" value="Proceed to Checkout" onclick="msg()">
+				<input type="submit" value="Proceed to Pay">
+		 </form>
+			
 		</div>
 	</div>
 	
 </header>
-
-
-<script type="text/javascript">
-	function msg(){
-		alert('Succesfully made the payment');
-	}
-	
-</script>
 </body>
 </html>
