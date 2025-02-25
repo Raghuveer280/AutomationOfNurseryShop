@@ -1,0 +1,162 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<style>
+		*{padding:0; margin:0; box-sizing: border-box; font-family:sans-serif;}
+header{
+	width: 100vw;
+	min-height: 100vh;
+	background: #4CAF50;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container{
+	background: white;
+	max-width: 800px;
+	min-height: 500px;
+	display: flex;
+	justify-content:space-between;
+	align-items: flex-start;
+	padding: 0.5rem 1.5rem;
+}
+.left{
+	flex-basis: 50%;
+	border-right: solid green;
+}
+.right{
+	margin-left: 20px;
+	flex-basis: 50%;
+}
+form{
+	padding: 1rem;
+}
+
+h3{
+	margin-top: 1rem;
+	color:rgb(0, 128, 64);
+	}
+
+ input[type="text"],input[type="number"]{
+	width: 100%;
+	padding: 0.5rem 0.7rem;
+	margin: 0.5rem 0;
+	outline: none;
+}
+input[type="radio"]{
+	padding-top:25px;
+	margin: 0.5rem 0;
+	outline: none;
+}
+
+#pin{
+	display: flex;
+	margin-top: 0.5rem;
+}
+#pin input{
+	padding: 0.5rem 0.7rem;
+}
+#pin select{
+	width: 100%;
+		padding: 0.5rem 0.7rem;
+		margin: 0.5rem 0;
+		outline: none;
+}
+#pin input[type="number"]{
+	padding: 0.5rem 0.7rem;
+	margin-left: 5px;	
+}
+#pin input[type="password"]{
+	padding: 0.5rem 0.7rem;
+	margin-left: 5px;	
+}
+input[type="submit"]{
+	width: 100%;
+	padding: 0.7rem 1.5rem;
+	background: rgb(128, 128, 64);
+	color:black;
+	border: none;
+	outline: none;
+	margin-top: 1rem;
+	cursor: pointer;
+	font-size: 22px;
+}
+
+input[type="submit"]:hover{
+	background: rgb(0, 128, 0);
+	color:rgb(255, 255, 255);
+}
+
+
+@media only screen and (max-width: 770px){
+	.container{
+		flex-direction: column;
+	}
+	body{
+		overflow-x: hidden;
+	}
+}
+
+
+	</style>
+	</head>
+<body>
+<header>
+	<div class="container">
+		<div class="left">
+			<h3>BILLING ADDRESS</h3>
+			<form method="post" action="/paymentRes">
+				Full name
+				<input type="text" name="Fname" placeholder="Enter name" required>
+				Email
+				<input type="text" name="email" placeholder="Enter email" required>
+
+				Address
+				<input type="text" name="address" placeholder="Enter address" required>
+				
+				City
+				<input type="text" name="city" placeholder="Enter City" required>
+				<div id="pin">
+					<label>
+						State
+						<select name="state">
+							<option value="null">Choose State..</option>
+							<option value="Assam">Assam</option>
+							<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+							<option value="Uttar Pradesh">Uttar Pradesh</option>
+							<option value="Madhya Pradesh">Madhya Pradesh</option>
+							<option value="Karnataka">Karnataka</option>
+							<option value="Tamil-nadu">Tamil-nadu</option>
+							<option value="Gujrat">Gujrat</option>
+							<option value="Rajasthan">Rajasthan</option>
+							<option value="Bihar">Bihar</option>
+							<option value="Goa">Goa</option>
+						</select>
+					</label>
+						<label>
+						Pin code
+						<input type="number" name="pincode" placeholder="Pin code" inputmode="numeric">
+					</label>
+				</div>
+		</div>
+		<div class="right">
+			<h3>SELECT MODE OF PAYMENT</h3>
+			<br><input type="radio" name="modeofpayment" value="UPI" id="opt1"><label for="opt1">UPI   <img th:src="@{images/upi.jpg}" height="40"></label><br>
+			<input type="radio" name="modeofpayment" value="Credit/Debit Card" id="opt2"><label for="opt2">Credit/Debit Card   <img th:src="@{images/card2.jpg}" height="40"></label><br>
+			<input type="radio" name="modeofpayment" value="Cash on Delivery" id="opt3"><label for="opt3">Cash on Delivery   <img th:src="@{images/cod.png}" height="40"></label><br>
+			<input type="radio" name="modeofpayment" value="Net Banking" id="opt4"><label for="opt4"> Net-Banking   <img th:src="@{images/netbank.jpg}" height="40"></label><br>		
+				
+			
+			<div style="padding-top: 110px;">
+					<h3 style="display: inline;">Amount to pay:₹</h3>
+						<input style="border: none;color:rgb(0, 128, 0);font-size: 20px;width:55px;font-weight: bold;" name="amt" th:value="${amt}"readonly>
+				</div>
+				<input type="submit" value="Proceed to Pay">
+		 </form>
+			
+		</div>
+	</div>
+	
+</header>
+</body>
+</html>
